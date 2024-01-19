@@ -1,7 +1,8 @@
 import Form from '@rjsf/mui';
 import React, { useEffect } from 'react';
 import { schema } from './schema';
-import validator from '@rjsf/validator-ajv8';
+import { customizeValidator } from '@rjsf/validator-ajv8';
+import Ajv2020 from 'ajv/dist/2020';
 
 const initialData = {
   "DataSource":"chalgrove-cartularies",
@@ -14,6 +15,8 @@ const initialData = {
 export const App = () => {
   useEffect(() => console.info({ schema }), []);
   return (
-    <Form schema={schema} validator={validator} formData={initialData}></Form>
+    <Form schema={schema} validator={customizeValidator({
+      AjvClass: Ajv2020
+    })} formData={initialData}></Form>
   );
 }
