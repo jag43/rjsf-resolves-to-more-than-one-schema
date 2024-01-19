@@ -48,7 +48,6 @@ export const schema = JSON.parse(`{
     "$defs": {
       "locations.json": {
         "$schema": "https://json-schema.org/draft/2020-12/schema",
-        "$id": "locations.json",
         "title": "Location",
         "description": "A type representing supported locations.",
         "type": "string",
